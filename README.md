@@ -27,5 +27,3 @@ This section contains how variables should be named when programming for this ta
 • Use **snake_case** when naming variables
 
 • Give variables appropriate, relevant names
-
-test
