@@ -1,0 +1,7 @@
+Stage Names:
+StageA,StageB,StageC
+
+Stage Capacities:
+1,2,3
+
+Stage Location:
