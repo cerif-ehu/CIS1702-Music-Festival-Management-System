@@ -1,1 +1,3 @@
-
+"""
+This code is created for the core component: Peformer Management
+"""
