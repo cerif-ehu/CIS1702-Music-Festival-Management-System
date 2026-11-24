@@ -2,6 +2,24 @@
 This code is created for the core component: Peformer Management
 (Ashleigh)
 """
+# Performer Record Dictionary
+performer_id = 0
+
+performer_records = {
+    performer_id: {
+        "Name": add_name,
+        "Genre": add_genre,
+        "Email": add_email 
+    }
+}
+
+# Performer Record Functions
+def add_performer(add_name, add_genre, add_email, performer_id):
+    performer_records[performer_id] = {
+        "Name": add_name,
+        "Genre": add_genre,
+        "Email": add_email
+    }
 
 # Main Performer Loop (Ashleigh)
 while True:
@@ -23,7 +41,12 @@ while True:
         if performer_choice == 1:
             print("// Chosen: Add Performer Record //")
             
-            # TODO: Add Performer Record Code
+            add_name = str(input("Enter Performer Name: "))
+            add_genre = str(input("Enter Performer Genre: "))
+            add_email = str(input("Enter Performer Email: "))
+            performer_id += 1
+            
+            add_performer(add_name, add_genre, add_email)
         
         elif performer_choice == 2:
             print("// Chosen: View Performer Record //")
