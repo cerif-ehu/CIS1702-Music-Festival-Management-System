@@ -20,6 +20,19 @@ def add_performer(add_name, add_genre, add_email, performer_id):
     for performer_id in performer_records:
         print(f"{performer_id}: {performer_records[performer_id]}")
 
+def update_performer(edit_choice):
+    
+    edit_name = str(input("Enter New Performer Name: "))
+    performer_records[edit_choice]["Name"] = edit_name
+    
+    edit_genre = str(input("Enter New Performer Genre: "))
+    performer_records[edit_choice]["Genre"] = edit_genre
+    
+    edit_email = str(input("Enter New Performer Email: "))
+    performer_records[edit_choice]["Email"] = edit_email
+    
+    print(performer_records[edit_choice])
+
 # Main Performer Loop (Ashleigh)
 while True:
     try:
@@ -53,7 +66,7 @@ while True:
             view_performer = int(input("Enter Performer ID: "))
             
             if view_performer > 0 and view_performer <= performer_id:
-                print(performer_records[view_performer])
+                print(f"{view_performer}: {performer_records[view_performer]}")
                 continue
             else:
                 print("Cannot be viewed: This is not a valid performer ID.")
@@ -62,7 +75,19 @@ while True:
         elif performer_choice == 3:
             print("// Chosen: Update Performer Record //")
             
-            # TODO: Update Performer Record Code
+            print("Below is the list of performer records:")
+            
+            for performer_id in performer_records:
+                print(f"{performer_id}: {performer_records[performer_id]}")
+            
+            edit_choice = int(input("Enter Performer ID To Edit: "))
+            
+            if edit_choice > 0 and edit_choice <= performer_id:
+                update_performer(edit_choice)
+                print(f"New Version: {edit_choice}: {performer_records[edit_choice]}")
+            else:
+                print("Cannot be edited: This is not a valid performer ID.")
+                continue
         
         elif performer_choice == 4:
             print("// Chosen: Delete Performer Record //")
