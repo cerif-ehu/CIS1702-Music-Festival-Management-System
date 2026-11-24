@@ -33,6 +33,10 @@ def update_performer(edit_choice):
     
     print(performer_records[edit_choice])
 
+def delete_performer(delete_choice):
+    del performer_records[delete_choice]
+    print(f"Performer Record ID: {delete_choice} has been deleted.")
+
 # Main Performer Loop (Ashleigh)
 while True:
     try:
@@ -67,10 +71,8 @@ while True:
             
             if view_performer > 0 and view_performer <= performer_id:
                 print(f"{view_performer}: {performer_records[view_performer]}")
-                continue
             else:
                 print("Cannot be viewed: This is not a valid performer ID.")
-                continue
         
         elif performer_choice == 3:
             print("// Chosen: Update Performer Record //")
@@ -87,12 +89,16 @@ while True:
                 print(f"New Version: {edit_choice}: {performer_records[edit_choice]}")
             else:
                 print("Cannot be edited: This is not a valid performer ID.")
-                continue
         
         elif performer_choice == 4:
             print("// Chosen: Delete Performer Record //")
+
+            delete_choice = int(input("Enter Performer ID To Edit: "))
             
-            # TODO: Delete Performer Record Code
+            if delete_choice > 0 and delete_choice <= performer_id:
+                delete_performer(delete_choice)
+            else:
+                print("Cannot be deleted: This is not a valid performer ID.")
         
         elif performer_choice == 5:
             print("// Chosen: Exit //")
@@ -101,7 +107,6 @@ while True:
         
         else:
             print("Error: Option outside numerical range, please choose an option (1-4)")
-            continue
 
     except ValueError:
         print("Error: This is not a valid number.")
