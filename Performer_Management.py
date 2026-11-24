@@ -6,11 +6,6 @@ This code is created for the core component: Peformer Management
 performer_id = 0
 
 performer_records = {
-    performer_id: {
-        "Name": add_name,
-        "Genre": add_genre,
-        "Email": add_email 
-    }
 }
 
 # Performer Record Functions
@@ -20,6 +15,10 @@ def add_performer(add_name, add_genre, add_email, performer_id):
         "Genre": add_genre,
         "Email": add_email
     }
+    
+    print("// New Performer Record List //")
+    for performer_id in performer_records:
+        print(f"{performer_id}: {performer_records[performer_id]}")
 
 # Main Performer Loop (Ashleigh)
 while True:
@@ -46,7 +45,7 @@ while True:
             add_email = str(input("Enter Performer Email: "))
             performer_id += 1
             
-            add_performer(add_name, add_genre, add_email)
+            add_performer(add_name, add_genre, add_email, performer_id)
         
         elif performer_choice == 2:
             print("// Chosen: View Performer Record //")
