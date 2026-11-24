@@ -50,7 +50,14 @@ while True:
         elif performer_choice == 2:
             print("// Chosen: View Performer Record //")
             
-            # TODO: View Performer Record Code
+            view_performer = int(input("Enter Performer ID: "))
+            
+            if view_performer > 0 and view_performer <= performer_id:
+                print(performer_records[view_performer])
+                continue
+            else:
+                print("Cannot be viewed: This is not a valid performer ID.")
+                continue
         
         elif performer_choice == 3:
             print("// Chosen: Update Performer Record //")
@@ -72,4 +79,4 @@ while True:
             continue
 
     except ValueError:
-        print("Error: This is not a valid number, please choose an option (1-4)")
+        print("Error: This is not a valid number.")
