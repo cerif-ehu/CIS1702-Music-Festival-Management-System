@@ -21,6 +21,18 @@ def test_add_vendor():
         }
     }
 
+def test_same_vendor_add():
+    vm.vendor_records.clear()
+    vm.vendor_id = 0 
+    vm.vendor_id = vm.add_vendors("Vendor 1", "Pizza", "A", vm.vendor_id)
+    vm.vendor_id = vm.add_vendors("Vendor 2", "Burger", "B", vm.vendor_id)
+    
+    assert ValueError 
+    
+def test_no_value_added():
+    vm.vendor_name= ""
+    assert ValueError
+
 
 def test_view_vendor():
     vm.vendor_records.clear()
