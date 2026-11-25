@@ -5,16 +5,19 @@ vendor_id = 0
 
 def add_vendors(name, foodtype,pitch, id):
    #adds vendor information to the dictionary (lucas)
-    vendor_records[vendor_id] = {
-        "Vendor ID": id,
-        "Vendor Name": name,
-        "Food Type": foodtype,
-        "Pitch Location": pitch
-        
-    }
-    #increments vendor id by 1 and returns (lucas)
-    id += 1
-    return id
+   try:
+       if id in vendor_records:
+           raise ValueError ("Vendor already in record") 
+       
+       vendor_records[vendor_id] = {
+            "Vendor ID": id,
+            "Vendor Name": name,
+            "Food Type": foodtype,
+            "Pitch Location": pitch
+            
+        }
+   except ValueError as error:
+       print(error)
 
 def delete_vendors():
     pass
@@ -55,10 +58,12 @@ while True:
             vendor_name = str(input("Enter the Vendor Name: "))
             vendor_foodtype = str(input("Enter the Vendor's Food Type: "))
             vendor_pitch_loction = str(input("Enter the Vendor's Pitch Location: "))
-            if not all[vendor_name, vendor_foodtype, vendor_foodtype]:
+            if vendor_name or vendor_foodtype or vendor_pitch_loction == "" == " ":
                 raise ValueError("Make sure all fields have been filled out")
             
-            vendor_id = add_vendors(vendor_name, vendor_foodtype, vendor_pitch_loction, vendor_id)
+            add_vendors(vendor_name, vendor_foodtype, vendor_pitch_loction, vendor_id)
+            vendor_id += 1
+            
         except ValueError as empty:
             print(empty)
            
