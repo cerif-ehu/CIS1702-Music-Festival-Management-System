@@ -3,13 +3,21 @@ import Vendor_Management as vm
 def test_add_vendor():
     vm.vendor_records.clear()
     vm.vendor_id = 0
-    vm.add_vendors("Vendor 1", "Pizza", "A", 0)
+    vm.vendor_id = vm.add_vendors("Vendor 1", "Pizza", "A", vm.vendor_id)
+    vm.vendor_id = vm.add_vendors("Vendor 2", "Burger", "B", vm.vendor_id)
     assert vm.vendor_records == {
         0: {
             "Vendor ID": 0,
             "Vendor Name": "Vendor 1",
             "Food Type": "Pizza",
-            "Pitch Location": "A",
+            "Pitch Location": "A"
+        },
+        1: {
+            "Vendor ID": 1,
+            "Vendor Name": "Vendor 2",
+            "Food Type": "Burger",
+            "Pitch Location": "B"
+            
         }
     }
 

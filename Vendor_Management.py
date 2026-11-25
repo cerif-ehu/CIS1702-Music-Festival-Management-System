@@ -4,7 +4,7 @@ vendor_records = {}
 vendor_id = 0
 
 def add_vendors(name, foodtype,pitch, id):
-    #adds vendor information to the dictionary (lucas)
+   #adds vendor information to the dictionary (lucas)
     vendor_records[vendor_id] = {
         "Vendor ID": id,
         "Vendor Name": name,
