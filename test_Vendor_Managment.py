@@ -96,6 +96,17 @@ def test_delete_vendor():
         "Food Type": "Pizza",
         "Pitch Location": "A",
     }
-    result = vm.delete_vendor(0)
+    result = vm.delete_vendors(0)
     assert result is True
     assert 0 not in vm.vendor_records
+    
+def test_vendor_out_of_range():
+    vm.vendor_records.clear()
+    vm.vendor_records = {
+            "Vendor ID": 0,
+            "Vendor Name": "Vendor 1",
+            "Food Type": "Pizza",
+            "Pitch Location": "A",
+        }
+    vm.delete_vendors(1)
+    assert ValueError 
