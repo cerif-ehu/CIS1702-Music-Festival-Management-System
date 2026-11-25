@@ -12,7 +12,7 @@ def add_vendors(name, foodtype,pitch, id):
         "Pitch Location": pitch
         
     }
-    
+    #increments vendor id by 1 and returns 
     id += 1
     return id
 
