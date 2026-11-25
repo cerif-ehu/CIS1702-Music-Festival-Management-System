@@ -51,11 +51,17 @@ while True:
 
     if choice == 1:
         print()
-        vendor_name = str(input("Enter the Vendor Name: "))
-        vendor_foodtype = str(input("Enter the Vendor's Food Type: "))
-        vendor_pitch_loction = str(input("Enter the Vendor's Pitch Location: "))
-        vendor_id = add_vendors(vendor_name, vendor_foodtype, vendor_pitch_loction, vendor_id)
-    
+        try:
+            vendor_name = str(input("Enter the Vendor Name: "))
+            vendor_foodtype = str(input("Enter the Vendor's Food Type: "))
+            vendor_pitch_loction = str(input("Enter the Vendor's Pitch Location: "))
+            if not all[vendor_name, vendor_foodtype, vendor_foodtype]:
+                raise ValueError("Make sure all fields have been filled out")
+            
+            vendor_id = add_vendors(vendor_name, vendor_foodtype, vendor_pitch_loction, vendor_id)
+        except ValueError as empty:
+            print(empty)
+           
     elif choice == 2:
         delete_vendors()
         
