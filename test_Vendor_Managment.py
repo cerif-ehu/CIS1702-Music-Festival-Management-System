@@ -111,5 +111,5 @@ def test_vendor_delete_out_of_range():
     assert KeyError
     
 def test_vendor_delete_empty():
-    vm.deleting("")
+    vm.deleting = " "
     assert ValueError 
