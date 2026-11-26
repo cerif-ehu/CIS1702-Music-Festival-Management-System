@@ -21,12 +21,8 @@ def add_vendors(name, foodtype,pitch, id):
    except ValueError as error:
        print(error)
 
-def delete_vendors():
-    
-    for key, value in vendor_records.items():
-        print(key, ":", value)
+def delete_vendors(deleting):
         
-    deleting = int(input("select which vendor ID you want to delete: "))
     del(vendor_records[deleting])
 
 def view_vendor():
@@ -75,7 +71,12 @@ while True:
             print(empty)
            
     elif choice == 2:
-        delete_vendors()
+        for key, value in vendor_records.items():
+            print(key, value)
+        
+        deleting = int(input("Choose Which Vendor from their ID to delete: "))
+        
+        delete_vendors(deleting)
         
     elif choice == 3:
         view_vendor()
