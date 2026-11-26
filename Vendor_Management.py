@@ -22,7 +22,12 @@ def add_vendors(name, foodtype,pitch, id):
        print(error)
 
 def delete_vendors():
-    pass
+    
+    for key, value in vendor_records.items():
+        print(key, ":", value)
+        
+    deleting = int(input("select which vendor ID you want to delete: "))
+    del(vendor_records[deleting])
 
 def view_vendor():
     pass
@@ -60,7 +65,7 @@ while True:
             vendor_name = str(input("Enter the Vendor Name: "))
             vendor_foodtype = str(input("Enter the Vendor's Food Type: "))
             vendor_pitch_loction = str(input("Enter the Vendor's Pitch Location: "))
-            if not vendor_name or not vendor_foodtype or not vendor_pitch_loction == "":
+            if not vendor_name or not vendor_foodtype or not vendor_pitch_loction:
                 raise ValueError("Make sure all fields have been filled out")
             
             vendor_id = add_vendors(vendor_name, vendor_foodtype, vendor_pitch_loction, vendor_id)
