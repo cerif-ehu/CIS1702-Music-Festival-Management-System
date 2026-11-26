@@ -78,9 +78,12 @@ while True:
     elif choice == 2:
         for key, value in vendor_records.items():
             print(key, value)
-        
-        deleting = int(input("Choose Which Vendor from their ID to delete: "))
-        
+        try:
+            deleting = int(input("Choose Which Vendor from their ID to delete: "))
+            
+        except ValueError:
+            print("Please input a whole number")
+            
         delete_vendors(deleting)
         
     elif choice == 3:
