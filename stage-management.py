@@ -20,7 +20,7 @@ def view_stages(input):
     index = 0
     if input in stage_names: ## if the user types the stage name directly (ceri)
         stage = stage_names.index(input)
-    elif int(input) in list(range(len(stage_names))): ## if user types the list number (ceri)
+    elif int(input) in list(range(len(stage_names) + 1)): ## if user types the list number (ceri)
         stage = (int(input) - 1)
     else:
         input("Invalid choice. Press any key to return to menu")
