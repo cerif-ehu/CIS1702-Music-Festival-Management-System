@@ -36,19 +36,16 @@ def test_no_value_added():
 
 def test_view_vendor():
     vm.vendor_records.clear()
-    vm.vendor_records = {
+    vm.vendor_records = {0:{
         "Vendor ID": 0,
         "Vendor Name": "Vendor 1",
         "Food Type": "Pizza",
-        "Pitch Location": "A",
+        "Pitch Location": "A"}
     }
-    result = vm.view_vendor(0)
-    assert result == {
-        "Vendor ID": 0,
-        "Vendor Name": "Vendor 1",
-        "Food Type": "Pizza",
-        "Pitch Location": "A",
-    }
+    vm.view_vendor(0)
+    assert  "Vendor ID: 0 \n Vendor Name: Vendor1 \n Food Type: Pizza \n Pitch Location: A \n"
+    
+    
 
 
 def test_view_all_vendor():
