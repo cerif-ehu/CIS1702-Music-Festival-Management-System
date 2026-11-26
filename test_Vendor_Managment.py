@@ -101,11 +101,11 @@ def test_delete_vendor():
     
 def test_vendor_out_of_range():
     vm.vendor_records.clear()
-    vm.vendor_records = {
+    vm.vendor_records = {0:{
             "Vendor ID": 0,
             "Vendor Name": "Vendor 1",
             "Food Type": "Pizza",
-            "Pitch Location": "A",
+            "Pitch Location": "A"}
         }
     vm.delete_vendors(1)
-    assert ValueError 
+    assert KeyError
