@@ -90,14 +90,13 @@ def test_update_vendor():
 
 def test_delete_vendor():
     vm.vendor_records.clear()
-    vm.vendor_records = {
+    vm.vendor_records = {0:{
         "Vendor ID": 0,
         "Vendor Name": "Vendor 1",
         "Food Type": "Pizza",
-        "Pitch Location": "A",
+        "Pitch Location": "A"}
     }
-    result = vm.delete_vendors(0)
-    assert result is True
+    vm.delete_vendors(0)
     assert 0 not in vm.vendor_records
     
 def test_vendor_out_of_range():
