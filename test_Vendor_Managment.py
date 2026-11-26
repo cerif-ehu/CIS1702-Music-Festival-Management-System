@@ -99,7 +99,7 @@ def test_delete_vendor():
     vm.delete_vendors(0)
     assert 0 not in vm.vendor_records
     
-def test_vendor_out_of_range():
+def test_vendor_delete_out_of_range():
     vm.vendor_records.clear()
     vm.vendor_records = {0:{
             "Vendor ID": 0,
@@ -109,3 +109,7 @@ def test_vendor_out_of_range():
         }
     vm.delete_vendors(1)
     assert KeyError
+    
+def test_vendor_delete_empty():
+    vm.deleting("")
+    assert ValueError 
