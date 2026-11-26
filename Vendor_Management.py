@@ -22,8 +22,13 @@ def add_vendors(name, foodtype,pitch, id):
        print(error)
 
 def delete_vendors(deleting):
+    try:
+        if deleting not in vendor_records:
+            raise KeyError ("That Key is not in the records")
         
-    del(vendor_records[deleting])
+        del(vendor_records[deleting])
+    except KeyError as error:
+        print(error)
 
 def view_vendor():
     pass
