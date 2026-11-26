@@ -16,6 +16,9 @@ def add_vendors(name, foodtype,pitch, id):
             "Pitch Location": pitch
             
         }
+       print()
+       print("Added Vendor")
+       print()
        id += 1
        return id 
    except ValueError as error:
@@ -27,11 +30,17 @@ def delete_vendors(deleting):
             raise KeyError ("That Key is not in the records")
         
         del(vendor_records[deleting])
+        
+        print()
+        print("deleted Vendor")
+        print()
     except KeyError as error:
         print(error)
 
-def view_vendor():
-    pass
+def view_vendor(viewing):
+    
+    for key, value in vendor_records[viewing].items():
+        print(f"{key}: {value}")
 
 def view_all_vendors():
     pass
@@ -76,8 +85,8 @@ while True:
             print(empty)
            
     elif choice == 2:
-        for key, value in vendor_records.items():
-            print(key, value)
+        for value in vendor_records.keys():
+            print(value)
         try:
             deleting = int(input("Choose Which Vendor from their ID to delete: "))
             
@@ -87,7 +96,8 @@ while True:
         delete_vendors(deleting)
         
     elif choice == 3:
-        view_vendor()
+        viewing = int(input("Choose Vendor ID you want to view: "))
+        view_vendor(viewing)
     
     elif choice == 4:
         print(vendor_records)
