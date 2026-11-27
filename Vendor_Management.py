@@ -27,7 +27,7 @@ def add_vendors(name, foodtype,pitch, id):
 def delete_vendors(deleting):
     try:
         if deleting not in vendor_records:
-            raise KeyError ("That Key is not in the records")
+            raise KeyError ("That Vendor is not in the records")
         
         del(vendor_records[deleting])
         
@@ -38,10 +38,19 @@ def delete_vendors(deleting):
         print(error)
 
 def view_vendor(viewing):
-    output = ""
-    for key, value in vendor_records[viewing].items():
-        output += (f"{key}: {value}\n")
-    return output.rstrip()
+    try:
+        if viewing in vendor_records:
+            
+            output = ""
+            for key, value in vendor_records[viewing].items():
+                output += (f"{key}: {value}\n")
+            return output.rstrip()
+      
+        raise KeyError ("That Vendor Not in record")
+    
+    except KeyError as error:
+        print(error)
+    
 
 def view_all_vendors():
     pass
