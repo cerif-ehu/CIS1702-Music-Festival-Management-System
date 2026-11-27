@@ -48,6 +48,18 @@ def test_view_vendor():
         "Food Type: Pizza\n"
         "Pitch Location: A"
     )
+
+def test_view_out_of_range():
+    vm.vendor_records.clear()
+    vm.vendor_records = {0:{
+            "Vendor ID": 0,
+            "Vendor Name": "Vendor 1",
+            "Food Type": "Pizza",
+            "Pitch Location": "A"}
+        }
+    
+    vm.view_vendor(1)
+    assert KeyError    
     
 
 
