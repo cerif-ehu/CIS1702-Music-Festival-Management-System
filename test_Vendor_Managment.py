@@ -61,7 +61,9 @@ def test_view_out_of_range():
     vm.view_vendor(1)
     assert KeyError    
     
-
+def test_nothing_entered_in_view():
+    vm.viewing = False
+    assert ValueError
 
 def test_view_all_vendor():
     vm.vendor_records.clear()
@@ -123,5 +125,5 @@ def test_vendor_delete_out_of_range():
     assert KeyError
     
 def test_vendor_delete_empty():
-    vm.deleting = " "
+    vm.deleting = False
     assert ValueError 
