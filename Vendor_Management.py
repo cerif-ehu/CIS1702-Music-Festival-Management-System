@@ -38,9 +38,10 @@ def delete_vendors(deleting):
         print(error)
 
 def view_vendor(viewing):
-    
+    output = ""
     for key, value in vendor_records[viewing].items():
-        print(f"{key}: {value}")
+        output += (f"{key}: {value}\n")
+    return output.rstrip()
 
 def view_all_vendors():
     pass
@@ -97,7 +98,7 @@ while True:
         
     elif choice == 3:
         viewing = int(input("Choose Vendor ID you want to view: "))
-        view_vendor(viewing)
+        print(view_vendor(viewing))
     
     elif choice == 4:
         print(vendor_records)

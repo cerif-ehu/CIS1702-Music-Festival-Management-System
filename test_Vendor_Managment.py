@@ -42,9 +42,12 @@ def test_view_vendor():
         "Food Type": "Pizza",
         "Pitch Location": "A"}
     }
-    vm.view_vendor(0)
-    assert  "Vendor ID: 0 \n Vendor Name: Vendor1 \n Food Type: Pizza \n Pitch Location: A \n"
-    
+    assert vm.view_vendor(0) == (
+        "Vendor ID: 0\n"
+        "Vendor Name: Vendor 1\n"
+        "Food Type: Pizza\n"
+        "Pitch Location: A"
+    )
     
 
 
