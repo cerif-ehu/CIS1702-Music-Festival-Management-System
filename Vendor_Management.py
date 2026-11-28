@@ -74,18 +74,15 @@ def view_vendor(viewing):
 def view_all_vendors():
     pass
 
-def update_vendor(update):
+def update_vendor(update, name, foodtype, pitch_location):
     
     if update in vendor_records:
-        new_name = str(input("Enter Vendor Name: "))
-        new_food_type = str(input("Enter Vendor Food Type: "))
-        new_pitch_location = str(input("Enter Pitch Location for Vendor: "))
-        
+
         vendor_records[update] = {
             "Vendor ID": update,
-            "Vendor Name": new_name,
-            "Food Type": new_food_type,
-            "Pitch Location": new_pitch_location
+            "Vendor Name": name,
+            "Food Type": foodtype,
+            "Pitch Location": pitch_location
         }
 
 
@@ -146,7 +143,11 @@ def main(vendor_id):
             for keys in vendor_records.keys():
                 print(keys)
             update = int(input("Choose a vendor to update: "))
-            update_vendor(update)
+            new_name = str(input("Enter Vendor Name: "))
+            new_food_type = str(input("Enter Vendor Food Type: "))
+            new_pitch_location = str(input("Enter Pitch Location for Vendor: "))
+                    
+            update_vendor(update, new_name, new_food_type, new_pitch_location)
         
         elif choice == 6:
             break
