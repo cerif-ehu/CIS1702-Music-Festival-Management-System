@@ -75,16 +75,18 @@ def view_all_vendors():
     pass
 
 def update_vendor(update, name, foodtype, pitch_location):
-    
-    if update in vendor_records:
+    try:
+        if update in vendor_records:
 
-        vendor_records[update] = {
-            "Vendor ID": update,
-            "Vendor Name": name,
-            "Food Type": foodtype,
-            "Pitch Location": pitch_location
-        }
-
+            vendor_records[update] = {
+                "Vendor ID": update,
+                "Vendor Name": name,
+                "Food Type": foodtype,
+                "Pitch Location": pitch_location
+            }
+    except KeyError:
+        print("That key is not in records")
+        raise
 
 
 def main(vendor_id):
