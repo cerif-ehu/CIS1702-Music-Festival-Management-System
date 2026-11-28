@@ -132,8 +132,8 @@ def test_vendor_updated_out_of_range():
     vm.vendor_records.clear()
     
     with pytest.raises(KeyError):
-        vm.update_vendor(1)
+        vm.update_vendor(1, "Vendor 1", "Pizza", "A")
         
 def test_chosen_vendor_updated_empty():
     with pytest.raises(ValueError):
-        vm.update_vendor("")
+        vm.update_vendor("", "Vendor 1", "Pizza", "")
