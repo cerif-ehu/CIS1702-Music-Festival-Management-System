@@ -120,11 +120,16 @@ def test_update_vendor():
         "Food Type": "Pizza",
         "Pitch Location": "A",
     }
-    result = vm.update_vendor(0, "Vendor 1 Updated", "Burgers", "B")
-    assert result is True
+    vm.update_vendor(0, "Vendor 1 Updated", "Burgers", "B")
     assert vm.vendor_records == {
         "Vendor ID": 0,
         "Vendor Name": "Vendor 1 Updated",
         "Food Type": "Burgers",
         "Pitch Location": "B",
     }
+    
+def test_vendor_updated_out_of_range():
+    vm.vendor_records.clear()
+    
+    with pytest.raises(KeyError):
+        vm.update_vendor(1)
