@@ -133,3 +133,7 @@ def test_vendor_updated_out_of_range():
     
     with pytest.raises(KeyError):
         vm.update_vendor(1)
+        
+def test_chosen_vendor_updated_empty():
+    with pytest.raises(ValueError):
+        vm.update_vendor("")
