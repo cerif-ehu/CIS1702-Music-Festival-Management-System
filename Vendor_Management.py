@@ -74,8 +74,22 @@ def view_vendor(viewing):
 def view_all_vendors():
     pass
 
-def update_vendor():
-    pass
+def update_vendor(update):
+    
+    if update in vendor_records:
+        new_name = str(input("Enter Vendor Name: "))
+        new_food_type = str(input("Enter Vendor Food Type: "))
+        new_pitch_location = str(input("Enter Pitch Location for Vendor: "))
+        
+        vendor_records[update] = {
+            "Vendor ID": update,
+            "Vendor Name": new_name,
+            "Food Type": new_food_type,
+            "Pitch Location": new_pitch_location
+        }
+
+
+
 def main(vendor_id):
     while True:
         print("""
