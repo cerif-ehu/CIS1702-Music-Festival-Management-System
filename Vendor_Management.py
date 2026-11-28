@@ -12,22 +12,23 @@ def add_vendors(name, foodtype,pitch, id):
                        
        if id in vendor_records:
            raise ValueError ("Vendor already in record") 
-       
-       vendor_records[id] = {
+   except ValueError as error:
+           print(error)
+           raise
+
+   vendor_records[id] = {
             "Vendor ID": id,
             "Vendor Name": name,
             "Food Type": foodtype,
             "Pitch Location": pitch
             
         }
-       print()
-       print("Added Vendor")
-       print()
-       id += 1
-       return id 
-   except ValueError as error:
-       print(error)
-       raise
+   print()
+   print("Added Vendor")
+   print()
+   id += 1
+   return id 
+
 
 def delete_vendors(deleting):
     """this function is used to delete a vendor from the dictionary and detects key and value errors (lucas)"""
@@ -37,18 +38,18 @@ def delete_vendors(deleting):
         
         if deleting not in vendor_records:
             raise KeyError ("That Vendor is not in the records")
-        
-        del(vendor_records[deleting])
-        
-        print()
-        print("deleted Vendor")
-        print()
     except KeyError as error:
-        print(error)
-        raise
+            print(error)
+            raise
     except ValueError:
-        print("Please input a whole number")
-        raise 
+            print("Please input a whole number")
+            raise     
+    del(vendor_records[deleting])
+        
+    print()
+    print("deleted Vendor")
+    print()
+  
 
 def view_vendor(viewing):
     """function to view a specific chosen vendor and detects value and key errors (lucas)"""
@@ -56,22 +57,23 @@ def view_vendor(viewing):
         #checks if entered ID is an intger and if it is runs through loop and if not Value Error occurs (lucas)
         viewing = int(viewing)
         
-        if viewing in vendor_records:
-            
-            output = ""
-            for key, value in vendor_records[viewing].items():
-                output += (f"{key}: {value}\n")
-            return output
-      
-        raise KeyError ("That Vendor Not in record")
-    
+        if viewing not in vendor_records:
+            raise KeyError ("That Vendor Not in record")
+     
     except KeyError as error:
-        print(error)
-        raise
-    
+            print(error)
+            raise
+        
     except ValueError:
-        print("Please enter a Whole Number")
-        raise
+            print("Please enter a Whole Number")
+            raise        
+    output = ""
+    for key, value in vendor_records[viewing].items():
+         output += (f"{key}: {value}\n")
+    return output
+      
+    
+   
     
 def view_all_vendors():
     pass
