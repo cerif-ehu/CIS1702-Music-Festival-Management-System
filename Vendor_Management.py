@@ -112,8 +112,8 @@ def main(vendor_id):
                 print(empty)
             
         elif choice == 2:
-            for value in vendor_records.keys():
-                print(value)
+            for keys in vendor_records.keys():
+                print(keys)
         
             deleting = int(input("Choose Which Vendor from their ID to delete: "))
         
@@ -129,7 +129,10 @@ def main(vendor_id):
             view_all_vendors()
             
         elif choice == 5:
-            update_vendor()
+            for keys in vendor_records.keys():
+                print(keys)
+            update = int(input("Choose a vendor to update: "))
+            update_vendor(update)
         
         elif choice == 6:
             break
