@@ -114,18 +114,18 @@ def test_view_all_vendor():
 
 def test_update_vendor():
     vm.vendor_records.clear()
-    vm.vendor_records = {
+    vm.vendor_records = {0:{
         "Vendor ID": 0,
         "Vendor Name": "Vendor 1",
         "Food Type": "Pizza",
-        "Pitch Location": "A",
+        "Pitch Location": "A"}
     }
     vm.update_vendor(0, "Vendor 1 Updated", "Burgers", "B")
-    assert vm.vendor_records == {
+    assert vm.vendor_records == {0:{
         "Vendor ID": 0,
         "Vendor Name": "Vendor 1 Updated",
         "Food Type": "Burgers",
-        "Pitch Location": "B",
+        "Pitch Location": "B"}
     }
     
 def test_vendor_updated_out_of_range():
